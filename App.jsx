@@ -1,33 +1,17 @@
 import './App.css'
+import MovieCard from './components/MovieCard'
 
 function App() {
+  const movieNum = 1;
 
   return (
     <>
-      <div>
-       <p>Hello World</p>
-      </div>
-      <div>
-        <p>Welcome to my movie project</p>
-      </div>
-      <Welcome/>
-      <DynamicProps display={"Whats up?"}/>
+    {movieNum === 1 ? (
+    <MovieCard movie={{title: "Avengers", release_date:"2025"}}/>) : 
+    (
+    <MovieCard movie={{title: "Solo Leveling", release_date:"2026"}}/>)
+    }
     </>
   )
 }
-
-function Welcome() {
-  return(
-    <div>
-      Welcome to my website.
-    </div>
-  )
-}
-
-function DynamicProps({display}) {
-  return(
-    <div>{display}</div>
-  )
-}
-
 export default App
