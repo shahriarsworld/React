@@ -1,17 +1,37 @@
-import './App.css'
-import MovieCard from './components/MovieCard'
+import MovieCard from "../components/MovieCard";
+import { useState } from "react";
 
-function App() {
-  const movieNum = 1;
+function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
 
+  const movies = [
+    { id: 1, title: "Shawshanks Redemption", release_date: "1999" },
+    { id: 1, title: "Shawshanks Revenge", release_date: "2001" },
+    { id: 1, title: "Shawshanks Fury", release_date: "2020" },
+  ];
+  const handleSearch = () => {};
   return (
-    <>
-    {movieNum === 1 ? (
-    <MovieCard movie={{title: "Avengers", release_date:"2025"}}/>) : 
-    (
-    <MovieCard movie={{title: "Solo Leveling", release_date:"2026"}}/>)
-    }
-    </>
-  )
+    <div className="home">
+      <form onSubmit={handleSearch} className="search-form">
+        <input
+          type="text"
+          placeholder="Search movies..."
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button type="submit" className="search-button">
+          Search
+        </button>
+
+      </form>
+      <div className="movies-grid">
+        {movies.map((movie) => (
+          <MovieCard movie={movie} key={movie.id} />
+        ))}
+      </div>
+    </div>
+  );
 }
-export default App
+
+export default Home;
