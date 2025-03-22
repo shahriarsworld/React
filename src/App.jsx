@@ -3,6 +3,7 @@ import MovieCard from "./components/MovieCard";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import { Routes, Route } from "react-router-dom";
+import { searchMovies, getPopularMovies } from "../services/api";
 function App() {
   return (
     <>
